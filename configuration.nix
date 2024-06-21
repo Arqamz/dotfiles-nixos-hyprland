@@ -5,7 +5,23 @@
 { config, pkgs, ... }: 
 
 {
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
 
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+  
   # X11 and wayland services
   services.xserver.enable = true;
 
@@ -20,7 +36,6 @@
 	xwayland.enable = true;
   };
 
-
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -30,7 +45,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "asylum"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -70,21 +85,10 @@
     description = "Arqam Zia";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-	discord
-	kitty
-	flameshot
-	curl
-	xfce.thunar
-	neofetch
-	ripgrep
-	cava
-	git
-	ffmpeg
-	emacs
-	neovim
-	multimarkdown
 	google-chrome
 	spotify
+	discord
+	cava
    ];
   };
 
@@ -96,11 +100,15 @@
   environment.systemPackages = with pkgs; [
 	#  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 	wget
+	
+	# Git
+	git
 
 	# File Manager
 	xfce.thunar
 
 	# Terminal Emulator
+	kitty
 	alacritty
 	
 	# Application Launcher
@@ -113,12 +121,45 @@
 	lightdm
 
 	# Application Manager
-	rofi
+	ulauncher
 
 	# NeoVim
 	neovim
 
-  ];
+	# Curl
+	curl
+	
+	# Home-manager 
+	home-manager
+
+	# lf
+	lf
+	
+	alsa-utils
+	pavucontrol
+
+	#Chrome and Firefox
+	firefox
+	google-chrome
+	
+	# Vscode
+	vscode
+	(vscode-with-extensions.override {
+	    vscodeExtensions = with vscode-extensions; [
+	      bbenoist.nix
+	      ms-python.python
+	      ms-azuretools.vscode-docker
+	      ms-vscode-remote.remote-ssh
+	    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+	      {
+	        name = "remote-ssh-edit";
+	        publisher = "ms-vscode-remote";
+	        version = "0.47.2";
+	        sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
+	      }
+	    ];
+  	})
+];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
