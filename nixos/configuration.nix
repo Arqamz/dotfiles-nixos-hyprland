@@ -98,6 +98,11 @@
     font-awesome
   ];
 
+  # ZSH OH-MY-ZSH P10K Terminal Customisation
+
+  programs.zsh.enable = true;
+
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

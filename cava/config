@@ -85,8 +85,8 @@
 ; method = pipewire
 ; source = auto
 
-; method = alsa
-; source = hw:Loopback,1
+method = alsa
+source = hw:2,0
 
 ; method = fifo
 ; source = /tmp/mpd.fifo
