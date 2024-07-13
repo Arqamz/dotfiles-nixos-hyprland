@@ -3,8 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }: 
-
-{
+let 
+  ags = pkgs.ags.overrideAttrs (_: prev: {
+    buildInputs = prev.buildInputs ++ [pkgs.libdbusmenu-gtk3];
+  });
+in{
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -26,7 +29,20 @@
   services.xserver.enable = true;
 
   # Set light DM to start hyprland
-  services.xserver.displayManager.lightdm.enable = true;
+  # services.xserver.displayManager.lightdm.enable = true;
+
+  # Greetd - TUIGreet
+  
+
+
+  # gnupg
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+#    pinentryPackage = "curses";
+  };
+  services.pcscd.enable = true;
+
 
   # Fix .defaultSession = "hyprland";
 
@@ -106,16 +122,27 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # i need to fix this messy file so bad
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	#  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+	#  vim 
+	# Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 	wget
+	
+	#Hypr
+	hyprland
+	hyprpaper
+	hyprpicker
+	hyprcursor
+	hypridle
+	hyprlock
 	
 	# Git
 	git
 	lazygit
-
+	
 	# File Manager
 	xfce.thunar
 
@@ -146,7 +173,77 @@
 	fastfetch
 	tmux
 
+	cloc
+
+	# AGS Bar and dependencies
+	ags
+	bun
+	dart-sass
+	fd
+	brightnessctl
+	swww
+	matugen
+	fzf
+	slurp
+	wf-recorder
+	wl-clipboard
+	wayshot
+	swappy	
+	gtksourceview
+	webkitgtk
+	accountsservice
+        
+	# Fufexan config	
+	bash
+	coreutils
+	gawk
+	imagemagick
+	procps
+	ripgrep
+	util-linux
+        gnome.gnome-control-center
+        mission-center
+        overskride
+        wlogout
+
+	zip
+	unzip
 	
+	#pass
+	pass-wayland
+	gnupg	
+	#	pinentry-tty
+	pinentry-curses
+	#	pinentry-gtk2
+
+	wev
+	#xev
+	iftop
+	wireshark
+	mitmproxy
+	tshark
+	tcpdump
+	yazi
+	nyxt
+	greetd.tuigreet
+	greetd.greetd
+	tty-clock
+	tui-journal
+	dooit
+
+	chatgpt-cli
+	bat
+	superfile
+	gping
+	goaccess
+	nchat	
+	lynx
+
+	#RandomStuff or games
+	cbonsai
+	cointop
+
+
 	# Home-manager 
 	home-manager
 
@@ -162,6 +259,7 @@
 
 	#FONT
 	font-awesome
+	nerdfonts 
 	
 	# Vscode
 	vscode
