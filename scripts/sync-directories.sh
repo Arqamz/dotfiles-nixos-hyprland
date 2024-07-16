@@ -47,14 +47,14 @@ echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
 ###############################################
 
 # Define the source and destination directories
-#SOURCE_DIR=~/.config/nvim/
-#DEST_DIR=~/dotfiles-nixos-hyprland/nvim/
+SOURCE_DIR=~/.config/nvim/
+DEST_DIR=~/dotfiles-nixos-hyprland/nvim/
 
 # Use rsync to copy and synchronize the contents
-# rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
+rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
 
 # Print a message indicating the process is complete
-# echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
+echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
 
 ###############################################
 #Kitty
@@ -76,7 +76,22 @@ echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
 
 # Define the source and destination directories
 SOURCE_DIR=~/.config/alacritty/
-DEST_DIR=~/dotfiles-nixos-hyprland/nvim/
+DEST_DIR=~/dotfiles-nixos-hyprland/alacritty/
+
+# Use rsync to copy and synchronize the contents
+rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
+
+# Print a message indicating the process is complete
+echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
+
+
+###############################################
+#Foot
+###############################################
+
+# Define the source and destination directories
+SOURCE_DIR=~/.config/foot/
+DEST_DIR=~/dotfiles-nixos-hyprland/foot/
 
 # Use rsync to copy and synchronize the contents
 rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
