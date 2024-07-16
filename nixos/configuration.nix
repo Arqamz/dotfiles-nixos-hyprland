@@ -7,6 +7,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./imports/hardware-configuration.nix
+      ./imports/command-shell.nix
       ./imports/sound.nix
       ./imports/gnupg.nix
       ./imports/xserver.nix
@@ -16,7 +17,7 @@
       ./imports/user.nix
       ./imports/fonts.nix
       ./imports/packages.nix
-      ./imports/system-config.nix
+      ./imports/system-services.nix
     ];
 
   # Bootloader.
@@ -28,6 +29,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Set zsh as default shell for all users
+  users.defaultUserShell = pkgs.zsh;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

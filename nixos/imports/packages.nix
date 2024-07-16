@@ -1,10 +1,14 @@
 { config, pkgs, ... }:
 
-let 
-  ags = pkgs.ags.overrideAttrs (_: prev: {
-    buildInputs = prev.buildInputs ++ [pkgs.libdbusmenu-gtk3];
+let
+  ags = pkgs.ags.overrideAttrs (prev: {
+    buildInputs = prev.buildInputs ++ [ pkgs.libdbusmenu-gtk3 ];
   });
-in {
+  thunarWithPlugins = pkgs.xfce.thunar.overrideAttrs (old: {
+    buildInputs = old.buildInputs ++ [ pkgs.xfce.thunar-archive-plugin ];
+  });
+in
+{
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -17,12 +21,12 @@ in {
     hyprlock
     git
     lazygit
-    xfce.thunar
+    thunarWithPlugins
     kitty
     alacritty
+    foot
     rofi
     waybar
-    lightdm
     ulauncher
     neovim
     curl
@@ -82,16 +86,12 @@ in {
     goaccess
     nchat
     lynx
-    cbonsai
-    cointop
     home-manager
     lf
     alsa-utils
     pavucontrol
     firefox
     google-chrome
-    font-awesome
-    nerdfonts
     vscode
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
@@ -108,5 +108,12 @@ in {
         }
       ];
     })
+    cbonsai
+    pipes-rs
+    cmatrix
+    lolcat
+    cowsay
+    cointop
+    
   ];
 }

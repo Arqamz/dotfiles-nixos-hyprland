@@ -12,7 +12,4 @@
       cava
     ];
   };
-
-  # ZSH OH-MY-ZSH P10K Terminal Customisation
-  programs.zsh.enable = true;
 }
