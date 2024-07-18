@@ -186,7 +186,7 @@ in
         # Chat for communities
         discord
         # Console-based audio visualizer
-        cava
+        pavucontrol cava
     ];
   };
 }
