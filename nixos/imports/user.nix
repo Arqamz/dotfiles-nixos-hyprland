@@ -15,8 +15,8 @@ in
         # Hyprland related packages
         # Wayland compositor
         hyprland
-        # Wallpaper manager for Hyprland
-        hyprpaper
+        # Wallpaper and Material U theme maker - Write your own scripts to hot change themes
+        hyprpaper swww matugen
         # Color picker for Hyprland
         hyprpicker
         # Cursor manager for Hyprland
@@ -26,25 +26,23 @@ in
         # Screen locker for Hyprland
         hyprlock
 
-        # CLI tools
-        # Simple terminal UI for git commands
+        #Simple terminal UI for git commands
         lazygit
         # File manager
         xfce.thunar
+	# Terminal multiplexer
+	tmux
+	# Ghosttty in the future
         # GPU-accelerated terminal emulator
         kitty
         # Terminal emulator
         alacritty
         # Minimalistic Wayland terminal emulator
         foot
-        # Window switcher, application launcher, and dmenu replacement
-        rofi
+        # Window switcher, application launcher, and dmenu replacement and Ulauncher(add extensions)
+        rofi ulauncher
         # Highly customizable Wayland bar
-        waybar
-        # Application launcher for Linux
-        ulauncher
-        # Vim-based text editor
-        neovim
+        waybar ags #add quickshell
         # System information tool
         neofetch
         # Fast system information tool
@@ -53,8 +51,7 @@ in
         tmux
         # Count lines of code
         cloc
-        # Advanced GTK+ Sequencer for audio processing
-        ags
+        
         # JavaScript runtime
         bun
         # Dart implementation of Sass
@@ -63,24 +60,16 @@ in
         fd
         # Utility to control brightness
         brightnessctl
-        # Sway wallpaper setter
-        swww
-        # Wayland screenshot tool
-        matugen
+
         # Command-line fuzzy finder
         fzf
         # Screenshot utility for Wayland
-        grim
-        # Select a region in a Wayland compositor
-        slurp
+        grimblast grim slurp swappy #hyprshot
         # Screen recording tool for Wayland
-        wf-recorder
+        wf-recorder obs-studio
         # Wayland clipboard utilities
         wl-clipboard
-        # Another Wayland screenshot tool
-        wayshot
-        # Wayland native screenshot editing tool
-        swappy
+        
         # GTK+ widget for source code editing
         gtksourceview
         # Web content engine for GTK+
@@ -93,26 +82,24 @@ in
         ripgrep
         # GNOME control center
         gnome.gnome-control-center
-        # Wayland compositor tool
+        # Performance and Task manager (similiar UI to windows)
         mission-center
-        # Another Wayland compositor tool
+        # Bluetooth window tool
         overskride
-        # Wayland logout screen
+        # Icons to logout suspend hibernate
         wlogout
-        # Compression utility
-        zip
-        # Decompression utility
-        unzip
-        # Password manager for Wayland
+        # Compression |  Decompression utility
+	zip unzip
+        # Password store (with menu for Wayland)
         pass-wayland
         # GNU Privacy Guard
         gnupg
-        # Pinentry for curses
+        # Pin-entry curses interface
         pinentry-curses
-        # Wayland event viewer
+        # Wayland event viewer (check key IDs)
         wev
         # Display bandwidth usage on an interface
-        iftop
+        iftop nvtopPackages.intel
         # Network protocol analyzer
         wireshark
         # Interactive HTTPS proxy
@@ -159,24 +146,28 @@ in
         goaccess
 
         # Editors and IDEs
-        # Visual Studio Code
+        neovim
+	# Visual Studio Code
         vscode
         # Extensions for Visual Studio Code
-	    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        bbenoist.nix
-        ms-python.python
-        ms-azuretools.vscode-docker
-        ms-vscode-remote.remote-ssh
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "remote-ssh-edit";
-          publisher = "ms-vscode-remote";
-          version = "0.47.2";
-          sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
-        }
-      ];
-    })
+	(vscode-with-extensions.override {
+		vscodeExtensions = with vscode-extensions; [
+			bbenoist.nix
+		        ms-python.python
+	        	ms-azuretools.vscode-docker
+	        	ms-vscode-remote.remote-ssh
+		] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+	        	{
+				name = "remote-ssh-edit";
+				publisher = "ms-vscode-remote";
+				version = "0.47.2";
+				sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
+			}
+		];
+	})
+
+
+
         # Fun/Useless stuff
         # Bonsai tree generator
         cbonsai
