@@ -28,6 +28,22 @@ rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
 # Print a message indicating the process is complete
 echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
 
+
+###############################################
+#Ags
+###############################################
+
+# Define the source and destination directories
+SOURCE_DIR=~/.config/ags/
+DEST_DIR=~/dotfiles-nixos-hyprland/ags/
+
+# Use rsync to copy and synchronize the contents
+rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
+
+# Print a message indicating the process is complete
+echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
+
+
 ###############################################
 #Waybar
 ###############################################
