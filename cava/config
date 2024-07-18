@@ -210,7 +210,34 @@ source = hw:2,0
 # show waveform instead of frequency spectrum, 1 = on, 0 = off
 ; waveform = 0
 
+
 [color]
+
+# Catpuccin mocha transparent
+
+;gradient = 1
+
+;gradient_color_1 = '#94e2d5'
+;gradient_color_2 = '#89dceb'
+;gradient_color_3 = '#74c7ec'
+;gradient_color_4 = '#89b4fa'
+;gradient_color_5 = '#cba6f7'
+;gradient_color_6 = '#f5c2e7'
+;gradient_color_7 = '#eba0ac'
+;gradient_color_8 = '#f38ba8'
+
+# Catpuccin macchiato transparent 
+
+gradient = 1
+
+gradient_color_1 = '#8bd5ca'
+gradient_color_2 = '#91d7e3'
+gradient_color_3 = '#7dc4e4'
+gradient_color_4 = '#8aadf4'
+gradient_color_5 = '#c6a0f6'
+gradient_color_6 = '#f5bde6'
+gradient_color_7 = '#ee99a0'
+gradient_color_8 = '#ed8796'
 
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
 # Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires

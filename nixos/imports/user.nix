@@ -183,8 +183,8 @@ in
         cointop
         # Music streaming service
         spotify
-        # Chat for communities
-        discord
+        # Discord
+	betterdiscordctl discord
         # Audio stuff visualizer
 	playerctl pavucontrol cava
     ];

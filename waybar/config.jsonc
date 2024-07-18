@@ -81,6 +81,7 @@
       },
       "custom/launcher": {
         "format": "",
+        "on-click": "ulauncher -show drun",
         "tooltip": "false"
       },
       "custom/playerctl#backward": {
