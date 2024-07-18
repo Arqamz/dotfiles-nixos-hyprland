@@ -185,8 +185,8 @@ in
         spotify
         # Chat for communities
         discord
-        # Console-based audio visualizer
-        pavucontrol cava
+        # Audio stuff visualizer
+	playerctl pavucontrol cava
     ];
   };
 }
