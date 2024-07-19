@@ -4,8 +4,35 @@ let
     ags = pkgs.ags.overrideAttrs (prev: {
     buildInputs = prev.buildInputs ++ [ pkgs.libdbusmenu-gtk3 ];
     });
+
+    spicetify = import (builtins.fetchGit {
+        url = "https://github.com/Gerg-L/spicetify-nix.git";
+	ref = "master";
+    });    
 in
 {
+  imports = [
+    # For NixOS
+    spicetify.nixosModules.default
+  ];
+
+  programs.spicetify =
+   let
+     spicePkgs = spicetify.legacyPackages.${pkgs.system};
+   in
+   {
+     enable = true;
+     spotifyPackage = pkgs.spotify;
+     enabledExtensions = with spicePkgs.extensions; [
+       adblock
+       hidePodcasts
+       shuffle # shuffle+ (special characters are sanitized out of extension names)
+       fullAppDisplay
+     ];
+     theme = spicePkgs.themes.catppuccin;
+     colorScheme = "mocha";
+   };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.arqqm = {
     isNormalUser = true;
@@ -182,11 +209,11 @@ in
         # Terminal-based coin tracker
         cointop
         # Music streaming service
-        spotify
+        # spotify spicetify-cli
         # Discord
 	betterdiscordctl discord
         # Audio stuff visualizer
-	playerctl pavucontrol cava
+	playerctl pavucontrol cava pulseaudioFull
     ];
   };
 }
