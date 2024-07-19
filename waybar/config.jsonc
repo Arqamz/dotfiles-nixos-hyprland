@@ -69,7 +69,7 @@
         "waves": false
       },
       "clock": {
-        "format": " {:%a, %d %b, %I:%M %p}",
+        "format": "  {:%a, %d %b, %I:%M %p}",
         "format-alt": " {:%d/%m}",
         "tooltip": "true",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -105,8 +105,8 @@
           "Stopped": "<span> </span>"
         },
         "on-click": "playerctl play-pause",
-        "on-scroll-down": "playerctl volume .05-",
-        "on-scroll-up": "playerctl volume .05+",
+        "on-scroll-up": "playerctl volume .05-",
+        "on-scroll-down": "playerctl volume .05+",
         "return-type": "json"
       },
       "custom/playerlabel": {
@@ -176,7 +176,7 @@
       },
       "wlr/workspaces": {
         "active-only": false,
-        "all-outputs": false,
+        "all-outputs": true,
         "disable-scroll": false,
         "format": "{name}",
         "format-icons": {

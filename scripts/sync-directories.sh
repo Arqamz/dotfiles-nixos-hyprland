@@ -126,5 +126,50 @@ DEST_DIR=~/dotfiles-nixos-hyprland/cava/
 # Use rsync to copy and synchronize the contents
 rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
 
+###############################################
+#Spicetify
+###############################################
+
+# Define the source and destination directories
+SOURCE_DIR=~/.config/spicetify/
+DEST_DIR=~/dotfiles-nixos-hyprland/spicetify/
+
+# Use rsync to copy and synchronize the contents
+rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
+
 # Print a message indicating the process is complete
 echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
+
+
+###############################################
+# Bat
+###############################################
+
+# Define the source and destination directories
+SOURCE_DIR=~/.config/bat/
+DEST_DIR=~/dotfiles-nixos-hyprland/bat/
+
+# Use rsync to copy and synchronize the contents
+rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
+
+# Print a message indicating the process is complete
+echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
+
+
+###############################################
+# wlogout
+###############################################
+
+# Define the source and destination directories
+SOURCE_DIR=~/.config/wlogout/
+DEST_DIR=~/dotfiles-nixos-hyprland/wlogout/
+
+# Use rsync to copy and synchronize the contents
+rsync -av --delete "$SOURCE_DIR" "$DEST_DIR"
+
+# Print a message indicating the process is complete
+echo "Synchronization and copy complete from $SOURCE_DIR to $DEST_DIR"
+
+###############################################
+#Rofi
+###############################################
