@@ -126,7 +126,7 @@ in
         # Wayland event viewer (check key IDs)
         wev
         # Display bandwidth usage on an interface
-        iftop nvtopPackages.intel
+        iftop
         # Network protocol analyzer
         wireshark
         # Interactive HTTPS proxy

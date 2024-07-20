@@ -7,6 +7,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./imports/hardware-configuration.nix
+      ./imports/systemd.nix
       ./imports/command-shell.nix
       ./imports/sound.nix
       ./imports/gnupg.nix
@@ -16,14 +17,21 @@
       ./imports/locales.nix
       ./imports/user.nix
       ./imports/fonts.nix
-      ./imports/packages.nix
+      ./imports/system-packages.nix
       ./imports/system-services.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
+  # Boot configuration
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.kernelModules = ["amdgpu"];
+    kernelModules = ["amdgpu"];
+    kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" ];
+  };
+ 
   # Set your time zone.
   time.timeZone = "Asia/Karachi";
 
@@ -32,6 +40,26 @@
 
   # Set zsh as default shell for all users
   users.defaultUserShell = pkgs.zsh;
+
+  # Hardware config (modularise this still)
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      amdvlk
+
+      # mesa
+      mesa
+
+      # vulkan
+      vulkan-tools
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
+    ];
+  };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

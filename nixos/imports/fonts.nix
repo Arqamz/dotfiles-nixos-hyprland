@@ -43,7 +43,7 @@ in
 {
   fonts.packages = with pkgs; [
     font-awesome
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono"]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "RobotoMono"]; })
     mesloBoldItalic
     mesloItalic
     mesloBold
