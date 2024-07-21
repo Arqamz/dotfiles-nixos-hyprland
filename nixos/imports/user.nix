@@ -135,8 +135,10 @@ in
         tshark
         # Command-line packet analyzer
         tcpdump
+	# Benchmark
+	glmark2
         # Terminal file manager
-        yazi
+        eza yazi
 
         # Browsers
         # Browser designed for power users
