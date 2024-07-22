@@ -18,8 +18,8 @@ directory="$HOME/.config/hypr/wallpapers"
 random_background=$(ls $directory/*.png | shuf -n 1)
 
 # Get the primary monitor
-monitor=$(hyprctl monitors | grep Monitor | awk '{print $2}')
-
+#monitor=$(hyprctl monitors | grep Monitor | awk '{print $2}')
+monitor = eDP-1
 # Path to the configuration file
 config_file="$HOME/.config/hypr/hyprpaper.conf"
 
