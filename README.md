@@ -34,6 +34,7 @@ The repository contains the following folders for configurations:
 - `waybar`: Waybar configurations
 - `cava`: Cava configurations
 
+<!--
 Each theme is set up in its own branch, and you can switch between them easily.
 
 ## Installation
@@ -107,10 +108,10 @@ Feel free to customize the configurations to fit your needs. Here are a few tips
     Customize the look and feel of Rofi by editing `rofi/config.rasi`.
 - **Cava:**
     Change visualizer settings in `cava/config`.
-
+-->
 ## Contributing
 
-If you have suggestions or improvements, feel free to open an issue or submit a pull request. Contributions are welcome!
+I'm still really new to NixOS so if you have suggestions or improvements, feel free to open an issue or submit a pull request. Contributions are welcome!
 
 ## License
 
