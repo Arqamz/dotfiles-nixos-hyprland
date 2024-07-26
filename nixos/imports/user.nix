@@ -70,7 +70,8 @@ in
         rofi ulauncher
         # Highly customizable Wayland bar
         waybar ags #add quickshell
-        # System information tool
+        wttrbar
+	# System information tool
         neofetch
         # Fast system information tool
         fastfetch
@@ -156,6 +157,13 @@ in
         # Greetd login daemon
         greetd.greetd
 
+	# Notification Centers
+	dunst
+	swaynotificationcenter
+	
+	blueman
+	
+
         # Miscellaneous tools
         # Terminal clock
         tty-clock
@@ -173,6 +181,13 @@ in
         gping
         # Real-time web log analyzer
         goaccess
+
+	# PYTHON
+	#For waybar scripts :(
+	python3
+	#(python3.withPackages (python3Packages: with python3Packages; [ pygobject3 ]))
+	#gobject-introspection
+	#gobject-introspection-unwrapped
 
         # Editors and IDEs
         neovim
@@ -195,9 +210,14 @@ in
 		];
 	})
 
+        # Audio
+	playerctl pavucontrol cava pulseaudioFull
+
 
 
         # Fun/Useless stuff
+	# Large text
+	figlet
         # Bonsai tree generator
         cbonsai
         # Terminal-based pipes screensaver
@@ -214,8 +234,6 @@ in
         # spotify spicetify-cli
         # Discord
 	betterdiscordctl discord
-        # Audio stuff visualizer
-	playerctl pavucontrol cava pulseaudioFull
     ];
   };
 }
