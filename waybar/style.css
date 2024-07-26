@@ -1,128 +1,327 @@
+/* import pywal colors */
+
+@import url("../../.cache/wal/colors-waybar.css");
+
 * {
-    border: none;
-    border-radius: 0px;
-    font-family: DroidsSansMono Nerd Font;
-    font-size: 14px;
-    min-height: 0;
+  border: none;
+  border-radius: 18px;
+  font-family: "SF Pro Text";
+  font-size: 14px;
 }
+
+
+tooltip {
+  background: @background;
+  color: @color6;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @color6;
+}
+
+tooltip label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* window colors */
 
 window#waybar {
-    background: rgba(17,17,27,1);
+  background: alpha(@background, 0.3);
+  border-radius: 20px;
+  margin-top: 6px;
 }
 
-#cava.left, #cava.right {
-    background: #25253a;
-    margin: 5px; 
-    padding: 8px 16px;
-    color: #cba6f7;
+window#waybar.hidden {
+  opacity: 0.2;
 }
-#cava.left {
-    border-radius: 24px 10px 24px 10px;
+
+#window {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  transition: none;
+  background: alpha(@background, 0.1);
+  border-radius: 10px;
+  color: lighter(@color6);
 }
-#cava.right {
-    border-radius: 10px 24px 10px 24px;
-}
+
+/* workspaces colors */
+
 #workspaces {
-    background: #25253a;
-    margin: 5px 5px;
-    padding: 8px 5px;
-    border-radius: 16px;
-    color: #cba6f7
+  margin: 6px 6px 6px 6px;
+  border-radius: 20px;
+  transition: none;
+  padding-left: 6px;
+  padding-right: 0px;
 }
+
 #workspaces button {
-    padding: 0px 5px;
-    margin: 0px 3px;
-    border-radius: 16px;
-    color: transparent;
-    background: rgba(17,17,27,1);
-    transition: all 0.3s ease-in-out;
+  transition: none;
+  background: transparent;
+  margin-right: 10px;
+}
+
+#workspaces button.persistent {
+  transition: none;
+  color: #aca1cf;
+  background: transparent;
+}
+
+#workspaces button.empty {
+  color: #e29eca;
+  font-size: 2px;
+  transition: none;
+  background: transparent;
 }
 
 #workspaces button.active {
-    background-color: #89b4fa;
-    color: #11111B;
-    border-radius: 16px;
-    min-width: 50px;
-    background-size: 400% 400%;
-    transition: all 0.3s ease-in-out;
+  transition: none;
+  color: #e6b99d;
+  background: transparent;
+  font-size: 4px;
 }
 
-#workspaces button:hover {
-    background-color: #f5f5f5;
-    color: #11111B;
-    border-radius: 16px;
-    min-width: 50px;
-    background-size: 400% 400%;
+/* spotify */
+
+#custom-spotify {
+  margin-top: 6px;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  transition: none;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: @color6;
+  color: @background;
 }
 
-#tray, #pulseaudio, #network, #battery,
-#custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward{
-    background: #25253a;
-    font-weight: bold;
-    margin: 5px 0px;
+/* weather  */
+
+#custom-weather {
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 6px;
+  border-radius: 18px;
+  transition: none;
+  font-weight: bold;
+  color: @background;
+  background: @color6;
 }
-#tray, #pulseaudio, #network, #battery{
-    color: #f5f5f5;
-    border-radius: 10px 24px 10px 24px;
-    padding: 0 20px;
-    margin-left: 7px;
+
+/* cava */
+
+#custom-cava {
+  margin-top: 6px;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
 }
+
+/* clock */
+
 #clock {
-    color: #f5f5f5;
-    background: #25253a;
-    border-radius: 0px 0px 0px 40px;
-    padding: 10px 10px 15px 25px;
-    margin-left: 7px;
-    font-weight: bold;
-    font-size: 12px;
-}
-#custom-launcher {
-    color: #89b4fa;
-    background: #25253a;
-    border-radius: 0px 0px 40px 0px;
-    margin: 0px;
-    padding: 0px 35px 0px 15px;
-    font-size: 28px;
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+  border-radius: 18px;
+  transition: none;
+  font-weight: bold;
+  color: @background;
+  background: @color6;
 }
 
-#custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward {
-    background: #25253a;
-    font-size: 22px;
+/* language */
+
+#language {
+  margin-top: 6px;
+  margin-left: 8px;
+  margin-right: 0px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  transition: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: @background;
+  background: @color6;
 }
-#custom-playerctl.backward:hover, #custom-playerctl.play:hover, #custom-playerctl.foward:hover{
-    color: #f5f5f5;
+
+/* memory */
+
+#memory {
+  margin: 6px 6px 6px 6px;
+  margin-top: 6px;
+  margin-left: 8px;
+  margin-right: 0px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 18px;
+  /* font-size: 14px; */
+  font-weight: bold;
+  transition: none;
+  color: @background;
+  background: @color6;
 }
-#custom-playerctl.backward {
-    color: #cba6f7;
-    border-radius: 24px 0px 0px 10px;
-    padding-left: 16px;
-    margin-left: 7px;
+
+/* pulseaudio */
+
+#pulseaudio {
+  margin-top: 6px;
+  margin-left: 8px;
+  margin-right: 0px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: none;
+  color: @background;
+  background: @color6;
 }
-#custom-playerctl.play {
-    color: #89b4fa;
-    padding: 0 5px;
+
+/* bluetooth  */
+
+#bluetooth {
+  margin-top: 5px;
+  margin-left: 8px;
+  margin-right: 0px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: none;
+  color: @background;
+  background: @color6;
 }
-#custom-playerctl.foward {
-    color: #cba6f7;
-    border-radius: 0px 10px 24px 0px;
-    padding-right: 12px;
-    margin-right: 7px
+
+/* battery */
+
+#battery {
+  margin-top: 5px;
+  margin-left: 8px;
+  margin-right: 0px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 18px;
+  transition: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: @background;
+  background: @color6;
 }
-#custom-playerlabel {
-    background: #25253a;
-    color: #f5f5f5;
-    padding: 0 20px;
-    border-radius: 24px 10px 24px 10px;
-    margin: 5px 0;
-    font-weight: bold;
+
+#battery.charging,
+#battery.plugged {
+  color: #161617;
+  background-color: @color6;
 }
-#window{
-    background: #25253a;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 16px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-weight: normal;
-    font-style: normal;
+
+#battery.critical:not(.charging) {
+  background-color: @color8;
+  color: @background;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    color: @color6;
+  }
+}
+
+/* tray */
+
+#tray {
+  margin-top: 6px;
+  margin-left: 8px;
+  margin-right: 10px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  transition: none;
+  font-size: 14px;
+  font-weight: bold;
+  /* color: @background; */
+  background: transparent;
+}
+
+/* unused modules */
+
+#audio {
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 6px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: none;
+  color: @background;
+  background: @color7;
+}
+
+#custom-notification {
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+  border-radius: 15px;
+  transition: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: @background;
+  background-color: @color14;
+}
+
+#cpu {
+  margin-top: 6px;
+  margin-left: 8px;
+  padding-left: 10px;
+  margin-bottom: 6px;
+  padding-right: 10px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: none;
+  color: #161617;
+  background: #ea83a5;
+}
+
+#custom-launcher {
+  font-size: 18px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 5px;
+  border-radius: 10px;
+  transition: none;
+  color: #92a2d5;
+  background: transparent;
 }
