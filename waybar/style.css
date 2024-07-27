@@ -126,7 +126,7 @@ window#waybar.hidden {
   transition: none;
   font-size: 14px;
   font-weight: bold;
-  color: white;
+  color: @color15;
 }
 
 /* clock */
@@ -199,7 +199,7 @@ window#waybar.hidden {
 
 /* bluetooth  */
 
-#bluetooth {
+#bluetooth,#network {
   margin-top: 5px;
   margin-left: 8px;
   margin-right: 0px;
