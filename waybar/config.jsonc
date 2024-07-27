@@ -9,15 +9,16 @@
 
   // Modules layout
 
-  "modules-left": ["hyprland/workspaces", "custom/spotify"],
-  "modules-center": ["custom/weather", "clock"],
+  "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/spotify"],
+  "modules-center": ["clock"],
   "modules-right": [
-    "hyprland/language",
+    "custom/cava",
     "memory",
     "pulseaudio",
     "bluetooth",
+    "network",
     "battery",
-    "tray",
+    "custom/power"
   ],
 
   "custom/weather": {
@@ -51,6 +52,8 @@
         "on-click": "playerctl previous --player spotify",
         "on-click-right": "playerctl next --player spotify",
         "on-click-middle": "playerctl play-pause --player spotify",
+        "on-scroll-up": "playerctl volume .05-",
+        "on-scroll-down": "playerctl volume .05+",
         "return-type": "json",
         "escape": true,
         "tooltip-format": "  {}",
@@ -61,7 +64,7 @@
   "clock": {
     "tooltip": true,
     "interval": 60,
-    "format": "<span font='12'>󱑆</span>  {:%I:%M %p}",
+    "format": "<span font='12'>󱑆</span>  {:%d %b | %I:%M %p}",
     "format-alt": "<span font='12'>󰃭</span>  {:%a %d, <span font='12'>󱑆</span>  %I:%M %p}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
@@ -96,10 +99,7 @@
     "format": "{icon}     {volume}%",
     "rotate": 0,
     "format-muted": "<span size='large' rise='-1000'>󰖁 </span>",
-    "on-click": "pavucontrol -t 3",
-    "on-click-middle": "$HOME/.config/scripts/volumecontrol.sh -o m",
-    "on-scroll-up": "$HOME/.config/scripts/volumecontrol.sh -o i",
-    "on-scroll-down": "$HOME/.config/scripts/volumecontrol.sh -o d",
+    "on-click": "pavucontrol",   
     "tooltip-format": "{icon}   {desc} || {volume}%",
     "ignored-sinks": ["Easy Effects Sink"],
     "scroll-step": 5,
@@ -129,7 +129,9 @@
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
     "on-click": "blueman-manager",
   },
+
   // battery
+
   "battery": {
     "states": {
       "good": 95,
@@ -143,17 +145,23 @@
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip-format": "󰂁 {capacity}%\n{time}",
   },
+
   // cava
+ 
   "custom/cava": {
     "exec": "$HOME/.config/waybar/modules/waybarcava.sh",
     "format": "{}",
   },
+
   // tray
+
   "tray": {
     "icon-size": 14,
     "spacing": 10,
   },
+
   // notification
+
   "custom/notification": {
     "tooltip": false,
     "format": "{icon}",
@@ -174,14 +182,18 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true,
   },
+
   // network
+
   "network": {
     "tooltip": false,
     "format-wifi": "   {bandwidthDownBits}",
     "format-ethernet": "",
     "interval": 30,
   },
+
   // backlight
+
   "backlight": {
     "tooltip": false,
     "format": " {}%",
@@ -189,7 +201,9 @@
     "on-scroll-up": "light -A 5",
     "on-scroll-down": "light -U 5",
   },
+
   // media
+
   "custom/media": {
     "interval": 30,
     "format": "{icon} {}",
@@ -203,13 +217,17 @@
     "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
     "on-click": "playerctl play-pause",
   },
+
   // launcher
+
   "custom/launcher": {
     "format": "",
     "on-click": "$HOME/.config/rofi/launchers/type-6/launcher.sh",
     "on-click-right": "killall rofi",
   },
+
   // power
+
   "custom/power": {
     "format": " ",
     "on-click": "bash ~/.config/rofi/leave/leave.sh",
