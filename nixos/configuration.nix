@@ -6,6 +6,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      ./imports/boot.nix
       ./imports/hardware-configuration.nix
       ./imports/systemd.nix
       ./imports/command-shell.nix
@@ -20,17 +21,6 @@
       ./imports/system-packages.nix
       ./imports/system-services.nix
     ];
-
-  # Boot configuration
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    initrd.kernelModules = ["amdgpu"];
-    kernelModules = ["amdgpu"];
-    kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" ];
-  };
  
   # Set your time zone.
   time.timeZone = "Asia/Karachi";

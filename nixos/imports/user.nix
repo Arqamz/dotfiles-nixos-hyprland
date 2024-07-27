@@ -70,7 +70,7 @@ in
         rofi ulauncher
         # Highly customizable Wayland bar
         waybar ags #add quickshell
-        wttrbar
+        wttrbar pywal
 	# System information tool
         neofetch
         # Fast system information tool
