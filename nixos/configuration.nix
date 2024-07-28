@@ -10,6 +10,7 @@
       ./imports/hardware-configuration.nix
       ./imports/systemd.nix
       ./imports/command-shell.nix
+      ./imports/display-manager.nix
       ./imports/sound.nix
       ./imports/gnupg.nix
       ./imports/xserver.nix
