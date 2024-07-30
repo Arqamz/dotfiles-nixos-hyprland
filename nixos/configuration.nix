@@ -26,6 +26,9 @@
   # Set your time zone.
   time.timeZone = "Asia/Karachi";
 
+  # For flakes and nix-commands
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
