@@ -39,10 +39,6 @@ in
     description = "Arqam Zia";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-
-        # Keyremapping - remap caps and ralt
-	kanata #keyd is also an option but kanata better
-
         # Hyprland related packages
         # Wayland compositor
         hyprland
