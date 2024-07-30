@@ -39,6 +39,10 @@ in
     description = "Arqam Zia";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+
+        # Keyremapping - remap caps and ralt
+	kanata #keyd is also an option but kanata better
+
         # Hyprland related packages
         # Wayland compositor
         hyprland
@@ -88,6 +92,12 @@ in
         fd
         # Utility to control brightness
         brightnessctl
+	btop
+	networkmanager
+	gnome.gnome-bluetooth
+	bluez
+	bluez-tools	
+	gnome.adwaita-icon-theme
 
         # Command-line fuzzy finder
         fzf
@@ -108,6 +118,8 @@ in
         gawk
         # Line-oriented search tool
         ripgrep
+        # Domain Name Server Suite
+        dig
         # GNOME control center
         gnome.gnome-control-center
         # Performance and Task manager (similiar UI to windows)
