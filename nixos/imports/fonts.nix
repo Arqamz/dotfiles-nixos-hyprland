@@ -45,6 +45,7 @@ in
     font-awesome
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "RobotoMono"]; })
     mesloBoldItalic
+    gnome.adwaita-icon-theme
     mesloItalic
     mesloBold
     mesloRegular
