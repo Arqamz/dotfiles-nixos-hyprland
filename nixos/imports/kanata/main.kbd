@@ -1,0 +1,23 @@
+(defsrc
+  caps grv         i
+              j    k    l
+  lsft rsft ralt
+)
+
+(deflayer default
+  @cap @grv        _
+              _    _    _
+  _    _ @ralt
+)
+
+(deflayer arrows
+  _    _           up
+              left down rght
+  _    _    _ 
+)
+
+(defalias
+  cap (tap-hold-press 200 200 lctl lctl)
+  ralt (tap-hold-press 150 300 bspc bspc)
+  grv (tap-hold-press 200 200 grv (layer-toggle arrows))
+)

@@ -9,6 +9,7 @@
       ./imports/boot.nix
       ./imports/hardware-configuration.nix
       ./imports/systemd.nix
+      ./imports/kanata/kanata.nix
       ./imports/command-shell.nix
       ./imports/display-manager.nix
       ./imports/sound.nix
