@@ -1,7 +1,9 @@
 # My Dotfiles
 
-Welcome to my dotfiles repository! This repository contains the configuration files and scripts I use to set up and maintain my NixOS system with various tools such as Hyprland, AGS bar, Rofi, Waybar, and Cava. The configurations are modular and organized to allow easy switching between different themes, which are set up in separate branches.
+This repo contains the configuration files and scripts I use to set up and maintain my NixOS system with tools like Hyprland, Ulauncher/Rofi and Waybar/Ags. Sorry if its ugly, it's still in the very early stages **WIP**
 
+
+<!--
 ## Table of Contents
 
 - [My Dotfiles](#my-dotfiles)
@@ -108,7 +110,6 @@ Feel free to customize the configurations to fit your needs. Here are a few tips
     Customize the look and feel of Rofi by editing `rofi/config.rasi`.
 - **Cava:**
     Change visualizer settings in `cava/config`.
--->
 ## Contributing
 
 I'm still really new to NixOS so if you have suggestions or improvements, feel free to open an issue or submit a pull request. Contributions are welcome!
@@ -116,3 +117,4 @@ I'm still really new to NixOS so if you have suggestions or improvements, feel f
 ## License
 
 This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+-->
