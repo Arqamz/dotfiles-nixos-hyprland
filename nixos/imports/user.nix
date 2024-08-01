@@ -72,9 +72,7 @@ in
         waybar ags #add quickshell
         wttrbar pywal
 	# System information tool
-        neofetch
-        # Fast system information tool
-        fastfetch
+        neofetch fastfetch nitch
         # Terminal multiplexer
         tmux
         # Count lines of code
